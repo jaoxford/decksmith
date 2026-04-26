@@ -15,4 +15,5 @@ decksmith = "decksmith.main:main"
 dev = [
     "ipython>=9.12.0",
     "pytest>=9.0.3",
+    "ty>=0.0.32",
 ]
