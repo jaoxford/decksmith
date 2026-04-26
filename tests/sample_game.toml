@@ -1,5 +1,5 @@
 name = "Game Name"
-emulator = "/path/to/emulator"
+platform = "Platform Name"
 rom = "/path/to/rom"
 profile = "Profile Name"
 position = 1
