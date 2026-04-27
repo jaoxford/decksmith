@@ -1,8 +1,6 @@
 import click
 
-from decksmith.config.game_config import GameConfig
-
-from ..config import GameConfigWriter
+from ..config import GameConfig, GameConfigWriter, PlatformConfig, PlatformConfigWriter
 
 
 @click.group()
@@ -25,5 +23,24 @@ def create_game_config(
             platform_name=platform_name,
             path_to_rom=path_to_rom,
             profile_name=profile_name,
+        )
+    )
+
+
+@cli.command()
+@click.option("--platform-name", "platform_name", prompt="Name of Platform")
+@click.option("--emulator-name", "emulator_name", prompt="Name of Emulator")
+@click.option("--path-to-emulator", "path_to_emulator", prompt="Path to Emulator")
+def create_platform_config(
+    platform_name: str,
+    emulator_name: str,
+    path_to_emulator: str,
+) -> None:
+    """Create a new platform config."""
+    PlatformConfigWriter()(
+        PlatformConfig(
+            platform_name=platform_name,
+            emulator_name=emulator_name,
+            path_to_emulator=path_to_emulator,
         )
     )
