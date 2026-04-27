@@ -1,5 +1,8 @@
+from decksmith.cli import cli
+
+
 def main():
-    print("Hello from decksmith!")
+    cli()
 
 
 if __name__ == "__main__":
