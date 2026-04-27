@@ -18,7 +18,7 @@ class GameConfigWriter:
     CONFIG_PATH = Path.home().joinpath(".config/decksmith/games")
     TOML_FILE_EXTENSION = ".toml"
 
-    def write_game_config(self, game_config: GameConfig) -> None:
+    def __call__(self, game_config: GameConfig) -> None:
         game_config_file_name = game_config.game_name.lower().replace(" ", "_")
         game_config_path = self.CONFIG_PATH.joinpath(
             f"{game_config_file_name}{self.TOML_FILE_EXTENSION}"
