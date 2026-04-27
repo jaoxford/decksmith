@@ -15,7 +15,7 @@ class GameConfig:
 
 
 class GameConfigWriter:
-    CONFIG_PATH = Path.home().joinpath(".config/decksmith")
+    CONFIG_PATH = Path.home().joinpath(".config/decksmith/games")
     TOML_FILE_EXTENSION = ".toml"
 
     def write_game_config(self, game_config: GameConfig) -> None:
