@@ -5,7 +5,7 @@ from typing import Optional
 import tomli_w
 
 
-@dataclass()
+@dataclass
 class GameConfig:
     game_name: str
     platform_name: str
