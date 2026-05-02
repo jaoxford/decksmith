@@ -11,7 +11,7 @@ class GameConfig:
     platform_name: str
     path_to_rom: str
     profile_name: str
-    position_on_deck: Optional[int] = None
+    position_on_deck: Optional[int] = 0
 
 
 class GameConfigWriter:
@@ -24,9 +24,6 @@ class GameConfigWriter:
             f"{game_config_file_name}{self.TOML_FILE_EXTENSION}"
         )
         game_config_path.parent.mkdir(exist_ok=True, parents=True)
-
-        if not game_config.position_on_deck:
-            game_config.position_on_deck = 0
 
         with open(game_config_path, "wb") as file:
             tomli_w.dump(asdict(game_config), file)
