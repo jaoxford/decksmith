@@ -1,14 +1,15 @@
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Optional
 
 import tomli_w
 
 
-@dataclass()
+@dataclass
 class PlatformConfig:
     platform_name: str
-    emulator_name: str
-    path_to_emulator: str
+    emulator_name: Optional[str] = ""
+    path_to_emulator: Optional[str] = ""
 
 
 class PlatformConfigWriter:
@@ -16,7 +17,7 @@ class PlatformConfigWriter:
     TOML_FILE_EXTENSION = ".toml"
 
     def __call__(self, platform_config: PlatformConfig) -> None:
-        platform_config_file_name = platform_config.emulator_name.lower().replace(
+        platform_config_file_name = platform_config.platform_name.lower().replace(
             " ", "_"
         )
         platform_config_path = self.CONFIG_PATH.joinpath(
